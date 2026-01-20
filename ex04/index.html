@@ -16,17 +16,22 @@
     <header>
       <h1>Vue Events</h1>
     </header>
+
+    
     <section id="events">
       <h2>Events in Action</h2>
       <button v-on:click="add(7)">Add 7</button>
       <button v-on:click="reduce(5)">Reduce 5</button>
+      <p v-once>Starting counter: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Lago')">
-      <p>{{ name }}</p>
-      <form>
-        <input type="text">
-        <button>Sign Up</button>
-      </form>
+      <input 
+      type="text" 
+      v-model="name"  
+      v-on:keyup.enter="confirmInput">
+      <button 
+      v-on:click="resetName">reset input</button>
+      <p>{{ confirmedName }}</p>
+      <p>{{ outputFullName() }}</p>
     </section>
   </body>
 </html>
