@@ -6,6 +6,42 @@ const app = Vue.createApp({
       confirmedName: ''
     };
   },
+  watch: {
+    counter(value) {
+      const that = this;
+      if( value > 50){
+        setTimeout(function(){
+          that.counter = 0;
+        }, 2000);
+      }
+
+    }
+    /*name( value ) {
+      if( value === ''){
+        this.fullname = '';
+      } else {
+        this.fullname = value + ' ' + this.lastName;
+      }
+      
+    },
+    lastName(value){
+      if(value === ''){
+        this.fullname = '';
+      } else{
+        this.fullname = this.name + ' ' + value;
+      }
+
+    }*/
+  },
+  computed: {
+    fullname() {
+      console.log('running again...')
+      if(this.name ===''){
+        return '';
+      }
+      return this.name + ' ' + 'Lago';
+    }
+  },
   methods: {
     outputFullName(){
       if(this.name ===''){
