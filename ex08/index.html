@@ -17,14 +17,18 @@
   </header>
   <section id="styling">
     <div 
-    class="demo" 
-    :style="{borderColor: boxASelected ? 'red' : 'orange'}"
+    class="demo"
+    :class="boxAClasses"
     @click="boxSelected('A')" >
     </div>
+
     <div class="demo"
-    :style="{borderColor: boxBSelected ? 'blue' : 'orange'}"
+    :class="['demo', { active : boxBSelected}]"
     @click="boxSelected('B')"></div>
-    <div class="demo" @click="boxSelected('C')"></div>
+
+    <div class="demo" 
+    :class="{ active : boxCSelected}"
+    @click="boxSelected('C')"></div>
   </section>
 </body>
 
